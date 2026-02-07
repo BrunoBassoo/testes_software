@@ -1,40 +1,47 @@
 def validar_nota(nota):
-    if (nota >= 0 or nota <= 10):
+    if not isinstance(nota, (int, float)):
+        raise ValueError("Nota deve ser numérica.")
+    if 0 <= nota <= 10:
         return True
     raise ValueError("Nota não está de acordo com a regra!")
 
 
 def calcular_media(notas):
-    n_validas = 0
+    if not notas:
+        raise ValueError("Lista de notas vazia.")
+
     n_total = 0
-    for i in notas:
-        if(validar_nota(notas[i])):
-            n_total += notas[i]
+    n_validas = 0
+    for nota in notas:
+        if validar_nota(nota):
+            n_total += nota
             n_validas += 1
-    return f"A média é: {(n_total / n_validas)}"
+
+    if n_validas == 0:
+        raise ValueError("Nenhuma nota válida.")
+
+    return n_total / n_validas
 
    
 def obter_situacao(media):
-    if validar_nota(media):
-        if media >= 7.0:
-            return "Aprovado!"
-        if media >= 5.0:
-            return "Recuperação!"
-        return "Reprovado!"
-    
-    raise ValueError("Média inválida!")
+    if not isinstance(media, (int, float)):
+        raise ValueError("Média inválida!")
+    if not (0 <= media <= 10):
+        raise ValueError("Média inválida!")
+
+    if media >= 7.0:
+        return "Aprovado!"
+    if media >= 5.0:
+        return "Recuperação!"
+    return "Reprovado!"
     
 def calcular_estatisticas(notas):
+    if not notas:
+        raise ValueError("Lista de notas vazia.")
+
     media = calcular_media(notas)
-
-    maior = notas[0]
-    menor = notas[0]
-
-    for nota in notas:
-        if nota > maior:
-            maior = nota
-        if nota < menor:
-            menor = nota
+    maior = max(notas)
+    menor = min(notas)
 
     aprovados = 0
     recuperacao = 0
@@ -46,7 +53,7 @@ def calcular_estatisticas(notas):
             aprovados += 1
         elif situacao == "Recuperação!":
             recuperacao += 1
-        elif situacao == "Reprovado!":
+        else:
             reprovados += 1
 
     estatisticas = {
@@ -63,15 +70,17 @@ def calcular_estatisticas(notas):
 def normalizar_notas(notas, nota_maxima=10):
     if nota_maxima <= 0:
         raise ValueError("Nota máxima deve ser maior que zero.")
-    
+
     notas_normalizadas = []
     for nota in notas:
-        if validar_nota(nota):
-            nota_normalizada = (nota / nota_maxima) * 10
-            notas_normalizadas.append(nota_normalizada)
-        else:
-            raise ValueError(f"Nota {nota} é invalida e n pode ser normalizada.")
-    
+        if not isinstance(nota, (int, float)):
+            raise ValueError(f"Nota {nota} deve ser numérica.")
+        if not (0 <= nota <= nota_maxima):
+            raise ValueError(f"Nota {nota} é inválida para a escala 0-{nota_maxima}.")
+
+        nota_normalizada = (nota / nota_maxima) * 10
+        notas_normalizadas.append(nota_normalizada)
+
     return notas_normalizadas
 
 
