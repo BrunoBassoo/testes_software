@@ -60,7 +60,19 @@ def calcular_estatisticas(notas):
 
     return estatisticas
 
+def normalizar_notas(notas, nota_maxima=10):
+    if nota_maxima <= 0:
+        raise ValueError("Nota máxima deve ser maior que zero.")
+    
+    notas_normalizadas = []
+    for nota in notas:
+        if validar_nota(nota):
+            nota_normalizada = (nota / nota_maxima) * 10
+            notas_normalizadas.append(nota_normalizada)
+        else:
+            raise ValueError(f"Nota {nota} é invalida e n pode ser normalizada.")
+    
+    return notas_normalizadas
 
 
 
-calcular_estatisticas([1,2,3,4,5,5,5,6,7,2,1,5])
