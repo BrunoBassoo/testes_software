@@ -1,4 +1,5 @@
 import pytest
+import conftest
 from cpf import validar_cpf, formatar_cpf
 
 
@@ -44,6 +45,8 @@ def test_validar_cpf_invalido_retorna_false(cpf):
 def test_formatar_cpf_valido_retorna_formatado():
     # Arrange
     cpf = "52998224725"
+
+    validar_cpf(cpf) # validar cpf para garantir que é válido
     esperado = "529.982.247-25"
 
     # Act
@@ -56,6 +59,7 @@ def test_formatar_cpf_valido_retorna_formatado():
 def test_formatar_cpf_valido_com_zeros():
     # Arrange
     cpf = "00000000191" # formatar válido
+    validar_cpf(cpf) # validar cpf para garantir que é válido
     esperado = "000.000.001-91"
 
     # Act
@@ -81,3 +85,4 @@ def test_formatar_cpf_invalido_levanta_value_error(cpf_invalido):
     # Act & Assert
     with pytest.raises(ValueError): 
         formatar_cpf(cpf)
+

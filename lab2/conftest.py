@@ -2,7 +2,6 @@ import pytest
 
 @pytest.fixture
 def cpfs_validos():
-
     return [
         "52998224725",   
         "12345678909",   
