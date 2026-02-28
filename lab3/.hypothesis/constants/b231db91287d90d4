@@ -1,0 +1,4 @@
+# file: /workspaces/testes_software/lab3/frete.py
+# hypothesis_version: 6.151.9
+
+[0.0, 1.0, 1.5, 2.0, 5.0, 10.0, 15.0, 25.0, 200.0, 'internacional', 'mesma', 'outra']
