@@ -10,22 +10,22 @@ No Grafo de Fluxo de Controle:
 ```mermaid
 flowchart TD
 
-A([Inicio])
-B{i < m ?}
-C{j < n ?}
-D[print(Posicao)]
-E[j++]
-F[i++]
+A([Início])
+B{"i < m ?"}
+C{"j < n ?"}
+D["print(Posicao)"]
+E["j++"]
+F["i++"]
 G([Fim])
 
 A --> B
-B -- True --> C
-C -- True --> D
+B -- Sim --> C
+C -- Sim --> D
 D --> E
 E --> C
-C -- False --> F
+C -- Não --> F
 F --> B
-B -- False --> G
+B -- Não --> G
 ```
 
 ---
