@@ -1,22 +1,5 @@
 # Exercício 1 — Caminhos Independentes
 
-## Código
-
-```python
-def verificar(n):
-    if n > 0:
-        if n % 2 == 0:
-            return "Par positivo"
-        else:
-            return "Impar positivo"
-    elif n < 0:
-        return "Negativo"
-    else:
-        return "Zero"
-```
-
----
-
 # Grafo de Fluxo de Controle (GFC)
 
 No Grafo de Fluxo de Controle:
@@ -27,23 +10,23 @@ No Grafo de Fluxo de Controle:
 ```mermaid
 flowchart TD
 
-A([Inicio])
-B{n > 0}
-C{n % 2 == 0}
-D[return "Par positivo"]
-E[return "Impar positivo"]
-F{n < 0}
-G[return "Negativo"]
-H[return "Zero"]
+A([Início])
+B{"n > 0?"}
+C{"n % 2 == 0?"}
+D["return Par positivo"]
+E["return Ímpar positivo"]
+F{"n < 0?"}
+G["return Negativo"]
+H["return Zero"]
 I([Fim])
 
 A --> B
-B -- True --> C
-C -- True --> D
-C -- False --> E
-B -- False --> F
-F -- True --> G
-F -- False --> H
+B -- Sim --> C
+C -- Sim --> D
+C -- Não --> E
+B -- Não --> F
+F -- Sim --> G
+F -- Não --> H
 
 D --> I
 E --> I
