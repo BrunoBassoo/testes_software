@@ -11,16 +11,22 @@ No Grafo de Fluxo de Controle:
 flowchart TD
 
 A([Início])
-B{"idade >= 18 AND membro?"}
-C["return Permitido"]
-D["return Negado"]
-E([Fim])
+B{"idade >= 18?"}
+C{"membro?"}
+D["return Permitido"]
+E["return Negado"]
+F([Fim])
 
 A --> B
+
 B -- Sim --> C
-B -- Não --> D
-C --> E
-D --> E
+B -- Não --> E
+
+C -- Sim --> D
+C -- Não --> E
+
+D --> F
+E --> F
 ```
 
 ---
@@ -33,14 +39,14 @@ V(G) = número de decisões + 1
 
 Decisões no código:
 
-1. `idade >= 18 and membro`
+1. `idade >= 18 and membro` (2 decisoes)
 
 Portanto:
 
-V(G) = 1 + 1  
-V(G) = **2**
+V(G) = 2 + 1  
+V(G) = **3**
 
-Logo, existem **2 caminhos independentes**.
+Logo, existem **3 caminhos independentes**.
 
 ---
 
@@ -51,6 +57,10 @@ Logo, existem **2 caminhos independentes**.
 Inicio → condição True → "Permitido" → Fim
 
 ### Caminho 2
+
+Inicio → condição True → "Negado" → Fim
+
+### Caminho 3
 
 Inicio → condição False → "Negado" → Fim
 
