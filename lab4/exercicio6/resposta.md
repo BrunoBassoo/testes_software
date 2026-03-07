@@ -5,27 +5,27 @@
 ```mermaid
 flowchart TD
 
-A[Início] --> B[total = 0]
-B --> C[for n in numeros]
+A([Início]) --> B["total = 0"]
+B --> C["for n in numeros"]
 
-C --> D{n > 0 e n % 2 == 0?}
+C --> D{"n > 0 e n % 2 == 0?"}
 
-D -->|Sim| E[total += n]
-D -->|Não| F{n < 0?}
+D -- Sim --> E["total += n"]
+D -- Não --> F{"n < 0?"}
 
-F -->|Sim| G[total -= 1]
-F -->|Não| H[continue]
+F -- Sim --> G["total -= 1"]
+F -- Não --> H["continue"]
 
 H --> C
 
-E --> I{total > 10?}
+E --> I{"total > 10?"}
 G --> I
 
-I -->|Sim| J[return "Acima"]
-I -->|Não| C
+I -- Sim --> J["return Acima"]
+I -- Não --> C
 
-C --> K[Fim do loop]
-K --> L[return "Abaixo"]
+C --> K["Fim do loop"]
+K --> L["return Abaixo"]
 ```
 
 ---
