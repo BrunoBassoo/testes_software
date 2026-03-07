@@ -10,15 +10,15 @@ No Grafo de Fluxo de Controle:
 ```mermaid
 flowchart TD
 
-A([Inicio])
-B{idade >= 18 AND membro}
-C[return "Permitido"]
-D[return "Negado"]
+A([Início])
+B{"idade >= 18 AND membro?"}
+C["return Permitido"]
+D["return Negado"]
 E([Fim])
 
 A --> B
-B -- True --> C
-B -- False --> D
+B -- Sim --> C
+B -- Não --> D
 C --> E
 D --> E
 ```
