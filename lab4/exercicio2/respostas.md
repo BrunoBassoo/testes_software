@@ -11,20 +11,20 @@ No Grafo de Fluxo de Controle:
 ```mermaid
 flowchart TD
 
-A([Inicio])
-B{x > 100}
-C[return "Alto"]
-D{x > 50}
-E[return "Medio"]
-F[return "Baixo"]
+A([Início])
+B{"x > 100?"}
+C["return Alto"]
+D{"x > 50?"}
+E["return Médio"]
+F["return Baixo"]
 G([Fim])
 
 A --> B
-B -- True --> C
-B -- False --> D
+B -- Sim --> C
+B -- Não --> D
 C --> G
-D -- True --> E
-D -- False --> F
+D -- Sim --> E
+D -- Não --> F
 E --> G
 F --> G
 ```
