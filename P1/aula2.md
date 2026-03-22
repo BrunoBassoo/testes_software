@@ -289,11 +289,20 @@ Nome = comportamento + resultado esperado
 
 ## 🚨 Test Smells
 
-* Testes dependentes
-* Testes lentos
-* Setup gigante
-* Assert genérico
-* Teste verificando várias coisas
+* Testes Dependentes:
+Um teste depende do resultado de outro - viola princípio Independent
+
+* Testes Lentos:
+Leva segundos/minutos - viola princípio Fast
+
+* Setup Excessivo:
+Muitas linhas de preparação - use fixtures!
+
+*Assertions Vagas:
+assert x vs assert x == valor_esperado
+
+* Teste Testando Múltiplas Coisas:
+Dificulta identificar o que falhou - divida em testes menores
 
 👉 Se aparecer isso → refatora
 
