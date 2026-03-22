@@ -151,4 +151,15 @@ Acontece em paralelo com o desenvolvimento (não é etapa final).
 
 ## 🐍 pytest (parte prática)
 
-### Estrutura
+### 🔥 O que você PRECISA decorar (prioridade alta)
+
+1. Erro → Defeito → Falha
+2. Verificação vs Validação
+3. Funcional vs Não-funcional
+4. Níveis de teste (unidade → aceitação)
+5. Caixa-preta vs branca
+6. Teste positivo vs negativo
+7. Regressão / fumaça / sanidade
+8. Shift-left e continuous testing
+9. Cobertura de código ≠ qualidade
+10. Estrutura básica do pytest
