@@ -298,7 +298,7 @@ Leva segundos/minutos - viola princípio Fast
 * Setup Excessivo:
 Muitas linhas de preparação - use fixtures!
 
-*Assertions Vagas:
+* Assertions Vagas:
 assert x vs assert x == valor_esperado
 
 * Teste Testando Múltiplas Coisas:
