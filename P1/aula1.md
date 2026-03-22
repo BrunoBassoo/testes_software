@@ -118,11 +118,11 @@ Acontece em paralelo com o desenvolvimento (não é etapa final).
 
 ## 🚀 Conceitos modernos (alto valor)
 
-### Shift-Left
+### Shift-Left (testar cedo)
 - Testar o mais cedo possível
 - Reduz custo de bugs
 
-### Continuous Testing
+### Continuous Testing (teste continuo)
 - Testes automáticos em CICD
 - Feedback rápido
 
