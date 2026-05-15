@@ -1,5 +1,17 @@
 # Laboratório 6 — Testes de unidade, integração e test doubles
 
+## Contexto, objetivo e tecnologias (guia para apresentação oral)
+
+**Contexto:** o sistema é uma **calculadora** que, além de calcular, **registra o histórico** das operações em um **repositório em memória**. O laboratório simula um cenário real em que dois módulos precisam “conversar” com um **contrato** (formato da string salva, ordem das chamadas).
+
+**Para que serve:** exercitar **níveis de teste** da pirâmide — **unidade** (calculadora isolada), **integração** (calculadora + repositório reais) e **test doubles** (stub vs mock com `MagicMock`), além de **cobertura** em `calculadora.py`. A ideia da Aula 06 é mostrar que erros aparecem também na **interface entre módulos**, não só na lógica interna.
+
+**Tecnologias:** **Python 3**, **`unittest`** (descoberta de testes, `TestCase`, `setUp`), **`unittest.mock.MagicMock`** (substituir o repositório), **`coverage.py`** (medir linhas cobertas). Não há framework web: é lógica pura + testes.
+
+**Se o professor perguntar:** “*Stub* fornece resposta controlada sem exigir I/O real; *mock* verifica **se** e **como** `salvar` foi chamado. Integração usa o repositório **de verdade** para pegar erros de contrato entre classes.”
+
+---
+
 Este laboratório implementa a **Atividade 06** (calculadora com repositório de histórico) em alinhamento com a **Aula 06** — *Teste de integração (e outros) e test doubles* (CC8550).
 
 ## Estrutura do projeto
