@@ -1,0 +1,2 @@
+# Opcional: cobertura ou ferramentas de qualidade
+# coverage>=7.0
