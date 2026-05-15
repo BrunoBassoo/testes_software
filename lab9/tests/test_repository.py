@@ -68,12 +68,20 @@ def test_delete_delega_storage(repo, mock_storage):
     mock_storage.delete.assert_called_once_with(3)
 
 
-def test_pytest_mocker_spy_em_storage_real(mocker, task):
-    """pytest-mock: observa chamada real a InMemoryStorage.add durante save."""
+def test_pytest_mocker_wraps_add_em_storage_real(mocker, task):
+    """
+    pytest-mock: registra chamadas a add mantendo o comportamento real (wraps).
+
+    Usamos patch.object + wraps em vez de spy em método de instância, pois em
+    alguns ambientes spy() não acumula chamadas de forma confiável quando o
+    repositório invoca self.storage.add(...).
+    """
     from task_manager.storage import InMemoryStorage
 
     storage = InMemoryStorage()
-    spy = mocker.spy(storage, "add")
+    add_real = storage.add
+    add_rastreado = mocker.patch.object(storage, "add", wraps=add_real)
     repo = TaskRepository(storage)
     repo.save(task)
-    spy.assert_called_once()
+    add_rastreado.assert_called_once_with(1, task)
+    assert storage.get(1) is task

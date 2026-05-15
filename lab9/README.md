@@ -51,7 +51,7 @@ pytest --cov=task_manager -v
 | Stub (`return_value`) | `test_find_by_id_stub_retorno_do_storage`, `test_find_all_lista_vazia` |
 | Interação entre métodos | `test_sequencia_save_depois_find_by_id` |
 | Unitário vs componente | `test_task.py` sem colaboradores; `test_repository.py` com lógica real do repositório e storage mockado |
-| `pytest-mock` | `test_pytest_mocker_spy_em_storage_real` (`mocker.spy` em `InMemoryStorage.add`) |
+| `pytest-mock` | `test_pytest_mocker_wraps_add_em_storage_real` (`mocker.patch.object` + `wraps` em `add`) |
 
 ## Uso rápido (integração manual)
 
