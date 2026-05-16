@@ -32,11 +32,31 @@ lab6/
 
 ## Como executar
 
+## Resultado dos testes (local)
+
+- Execução local: 57 testes passaram (57 passed).
+- Para rodar os testes rapidamente:
+
+```bash
+cd lab6
+pytest -q
+```
+
+Para gerar relatório de cobertura (opcional):
+
+```bash
+python -m coverage run -m pytest
+python -m coverage report -m --include="*/src/calculadora.py"
+python -m coverage html
+```
+
+## Como executar
+
 Na pasta `lab6`:
 
-```powershell
+```bash
 pip install -r requirements.txt
-python -m unittest discover -s tests -p "test*.py" -v
+pytest -q
 ```
 
 Cobertura em `calculadora.py`:

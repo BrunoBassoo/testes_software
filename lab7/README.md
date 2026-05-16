@@ -17,10 +17,28 @@ lab7/
 
 ## Execução
 
-Na pasta `lab7`:
+Resultado dos testes (local): 15 passed.
 
-```powershell
+Na pasta `lab7` — comandos rápidos:
+
+```bash
+# entrar na pasta do laboratório
+cd lab7
+
+# rodar a suíte de testes com pytest
+pytest -q
+
+# alternativa com unittest (equivalente):
 python -m unittest discover -s tests -p "test*.py" -v
+```
+
+Para gerar relatório de cobertura (opcional):
+
+```bash
+pip install -r requirements.txt  # se precisar instalar coverage
+python -m coverage run -m pytest
+python -m coverage report -m --include="*/src/estoque.py"
+python -m coverage html
 ```
 
 (Não há dependências externas obrigatórias; `requirements.txt` está reservado para extensões opcionais, por exemplo `coverage`.)

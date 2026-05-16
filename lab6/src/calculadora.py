@@ -41,7 +41,7 @@ class Calculadora:
         if not isinstance(base, (int, float)) or not isinstance(expoente, (int, float)):
             raise TypeError("Argumentos devem ser numeros")
         resultado = base**expoente
-        self.repositorio.salvar(f"{base} ** {expoente} = {resultado}")
+        self.repositorio.salvar(f"{base} ** {expoente} = {resultado}") # ajuste na string para refletir a operação de potenciação
         self.resultado = resultado
         return resultado
 

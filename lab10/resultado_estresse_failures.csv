@@ -1,0 +1,2 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,/api/produtos,"ConnectionRefusedError(111, 'Connection refused')",41465,2026-05-16T01:04:16Z,2026-05-16T01:04:46Z
